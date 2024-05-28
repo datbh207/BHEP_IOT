@@ -77,11 +77,8 @@ void loop() {
   long irValue = particleSensor.getIR();   // Kiểm tra xem có ngón tay trên cảm biến hay ko
   // Kiểm tra xem ngón tay có trên cảm biến hay ko ( irValue > 7000)
   if (irValue > FINGER_ON ) {
-    // Đo nhiệt độ
     float temperature = readTemperature();
-    //Calculate AvgBeat
     float avgBeat = calculateAvgHeartBeat(irValue);
-    //Calculate SpO2
     double spO2 = calculateSpO2(particleSensor.getFIFOIR(), particleSensor.getFIFORed());
 
     //In ra Serial
